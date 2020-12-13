@@ -3,7 +3,8 @@ import numpy as np
 import pandas as pd
 
 dados = pd.read_csv('C:/Users/Ezequiel/Desktop/MLP Perceptron/data.csv',sep=',')
-dados.head()
+amostras = dados.iloc[:,1]
+rotulos = dados.iloc[:,0]
  
 class NeuralNetwork:
 	def __init__(self, input_layer_size, num_hidden_nodes, num_hidden_layers, output_size, lr, activation_function="sigmoid", output_activation=""):
@@ -178,8 +179,8 @@ class NeuralNetwork:
 #input_layer_size, num_hidden_nodes, num_hidden_layers, output_size, lr, activation_function, output_activation
 net = NeuralNetwork(2, 2, 1, 1, 0.01, "relu")#, "softmax")
 
-test_data = 
-test_labels = 
+test_data = amostras
+test_labels = rotulos
 net.train(test_data, test_labels, 1000)
 
 
@@ -191,9 +192,9 @@ net.train(test_data, test_labels, 1000)
 
 #test_labels = [[0],[1],[1],[0]]
 
-#net.train(test_data, test_labels, 100000)
+net.train(test_data, test_labels, 100000)
 
-#print("Predictions: ")
-#for i in range(len(test_data)):
-#	print(test_data[i])
-#	print(net.predict(test_data[i]))
+print("Predictions: ")
+for i in range(len(test_data)):
+	print(test_data[i])
+	print(net.predict(test_data[i]))
