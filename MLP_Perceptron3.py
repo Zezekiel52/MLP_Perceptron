@@ -135,7 +135,7 @@ class NeuralNetwork:
 		#adjusts done
 
 	def train(self, train_data, labels, iterations, batch_size=0):
-		assert(len(train_data) != len(labels)), "Training data and labels of different dimensions"
+	#	assert(len(train_data) != len(labels)), "Training data and labels of different dimensions"
 		if batch_size == 0:
 			loss = np.zeros(iterations)
 			for iteration in range(iterations):
